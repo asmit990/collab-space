@@ -12,6 +12,7 @@
     "@hookform/resolvers": "^5.2.1",
     "@react-router/node": "^7.7.1",
     "@react-router/serve": "^7.7.1",
+    "@slate-yjs/core": "^1.0.2",
     "@tiptap/extension-collaboration": "^3.4.2",
     "@tiptap/react": "^3.4.2",
     "@tiptap/starter-kit": "^3.4.2",
@@ -24,6 +25,10 @@
     "react-hot-toast": "^2.6.0",
     "react-router": "^7.7.1",
     "react-router-dom": "^7.9.1",
+    "slate": "^0.118.1",
+    "slate-react": "^0.117.4",
+    "ws": "^8.18.3",
+    "y-leveldb": "^0.2.0",
     "y-websocket": "^3.0.0",
     "yjs": "^13.6.27",
     "zod": "^4.1.8"
