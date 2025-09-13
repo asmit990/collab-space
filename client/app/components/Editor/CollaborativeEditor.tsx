@@ -26,7 +26,7 @@ function CollaborativeEditor({ docId }: { docId: string }) {
     }, [sharedType]);
 
     useEffect(() => {
-        const provider = new WebsocketProvider('', 'yjs-ws-demo', ydoc);
+        const provider = new WebsocketProvider('ws://localhost:1234', 'yjs-ws-demo', ydoc);
         provider.on('status', ({ status }: { status: string }) => 
             setInOnline(status == 'connected')
         )
