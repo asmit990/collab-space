@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 interface User {
   id: string;
   name: string;
-  color: string; // each user gets a color
+  color: string; 
 }
 
 interface UserPresenceProps {
-  wsUrl: string; // WebSocket URL for presence updates
+  wsUrl: string; 
   currentUserId: string;
 }
 
@@ -17,13 +17,13 @@ const UserPresence: React.FC<UserPresenceProps> = ({ wsUrl, currentUserId }) => 
   useEffect(() => {
     const ws = new WebSocket(wsUrl);
 
-    // Listen for presence updates
+
     ws.onmessage = (event) => {
       const onlineUsers: User[] = JSON.parse(event.data);
       setUsers(onlineUsers);
     };
 
-    // Notify server of current user joining
+   
     ws.onopen = () => {
       ws.send(JSON.stringify({ type: "join", userId: currentUserId }));
     };

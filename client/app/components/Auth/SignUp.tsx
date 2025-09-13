@@ -10,6 +10,7 @@ export const RegisterForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
+  // Validation schema
   const schema = z.object({
     name: z.string().min(2, "Name is required"),
     email: z.string().email("Invalid email"),
@@ -25,11 +26,24 @@ export const RegisterForm = () => {
     },
   });
 
+  // Submit handler
   const onSubmit = async (data: z.infer<typeof schema>) => {
     try {
       setIsLoading(true);
-      await axios.post("/api/auth/register", data);
-      toast.success("Account created!");
+
+      // Call backend register
+      const res = await axios.post("/api/auth/register", data);
+
+      // If backend returns JWT token
+      const { token } = res.data;
+
+      if (token) {
+        // Store token (⚠️ better: use httpOnly cookies on server instead)
+        localStorage.setItem("auth_token", token);
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      }
+
+      toast.success("Account created! You are now logged in.");
       navigate("/Workspace");
     } catch (error: any) {
       toast.error(error?.response?.data?.message || "Something went wrong!");

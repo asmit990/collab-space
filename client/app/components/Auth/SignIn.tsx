@@ -95,15 +95,16 @@ export const RegisterForm = () => {
         </button>
 
         {/* Footer */}
-        <p className="text-sm text-gray-400 text-center mt-6">
-         Dont have an account?{" "}
-          <a
-            href="/SignUp"
-            className="text-indigo-400 hover:text-indigo-300 font-medium"
-          >
-            Sign in
-          </a>
-        </p>
+       <p className="text-sm text-gray-400 text-center mt-6">
+  Don’t have an account?{" "}
+  <a
+    href="/SignUp"
+    className="text-indigo-400 hover:text-indigo-300 font-medium"
+  >
+    Sign up
+  </a>
+</p>
+
       </form>
     </div>
   );
